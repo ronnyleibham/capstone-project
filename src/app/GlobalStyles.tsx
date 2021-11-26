@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
 
     :root {
     --black: #000000;
+    --white: #ffffff;
     --yellow-light: #ffd51a;
      --yellow-dark: #f3b90e;
     --grey-dark: #231f20;    }
@@ -19,6 +20,8 @@ const GlobalStyles = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
+  color: var(--white);
+
 }
 
     code {
