@@ -1,15 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LaunchApp from './pages/LaunchApp/LaunchApp';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-      <img src={logo} alt="" />
       <Routes>
-        <Route path="/">
-          <main>Home</main>
-        </Route>
+        <Route path="/" element={<LaunchApp />}></Route>
       </Routes>
     </BrowserRouter>
   );
