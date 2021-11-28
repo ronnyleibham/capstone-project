@@ -1,12 +1,21 @@
+// import * as LottiePlayer from '@lottiefiles/lottie-player';
 import React from 'react';
 import styled from 'styled-components';
-// import Lottie from 'react-lottie';
+// require('@lottiefiles/lottie-player');
 
 export default function LaunchAppButton(): JSX.Element {
   return (
     <StyledButton>
       <InnerCircle></InnerCircle>
       <ButtonText>LAUNCH</ButtonText>
+      {/* <lottie-player
+        autoplay="true"
+        controls
+        loop="true"
+        mode="normal"
+        src="./lottie-pulse.json"
+        style={{ width: 600 + 'px' }}
+      ></lottie-player> */}
     </StyledButton>
   );
 }
@@ -31,9 +40,10 @@ const InnerCircle = styled.div`
 `;
 
 const ButtonText = styled.div`
+  font-family: CocoGooseLight;
   font-weight: 600;
   font-size: 1.2em;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   position: absolute;
   left: 50%;
   top: 50%;
