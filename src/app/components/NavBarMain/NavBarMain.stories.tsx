@@ -6,4 +6,4 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const LaunchButton = (): JSX.Element => <NavBarMain></NavBarMain>;
+export const NavBar1 = (): JSX.Element => <NavBarMain></NavBarMain>;

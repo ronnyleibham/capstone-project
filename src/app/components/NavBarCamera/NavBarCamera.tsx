@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import logo from '../../logo.svg';
 import archiveIcon from '../../../assets/icons/archive.svg';
-import cameraIrisIcon from '../../../assets/icons/camera-iris.svg';
+import MyLottieCamAnimation from '../LottieCamButton/LottieCamButton';
 import searchIcon from '../../../assets/icons/search-icon.svg';
 
-export default function NavBarMain(): JSX.Element {
+export default function NavBarCamera(): JSX.Element {
   return (
     <NavContainer>
       <NavUpperContainer>
         <img src={searchIcon} height="40px" alt="" />
-        <CenterIconBackground src={cameraIrisIcon} height="120px" alt="" />
+        <CenterIconBackground>
+          <MyLottieCamAnimation />
+        </CenterIconBackground>
         <img src={archiveIcon} height="40px" alt="" />
       </NavUpperContainer>
       <NavLowerContainer>
@@ -50,9 +52,13 @@ const NavLowerContainer = styled.div`
   padding-right: 20px;
 `;
 
-const CenterIconBackground = styled.img`
-  background-color: var(--yellow-dark);
+const CenterIconBackground = styled.div`
+  position: relative;
+  /* background-color: var(--yellow-dark); */
   border: 2px solid var(--black);
   border-radius: 100%;
   padding: 2px;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
 `;
