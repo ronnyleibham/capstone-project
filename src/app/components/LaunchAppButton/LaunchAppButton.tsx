@@ -1,21 +1,12 @@
-// import * as LottiePlayer from '@lottiefiles/lottie-player';
-import React from 'react';
 import styled from 'styled-components';
-// require('@lottiefiles/lottie-player');
+import LottiePulse from '../LottiePulse/LottiePulse';
 
 export default function LaunchAppButton(): JSX.Element {
   return (
     <StyledButton>
       <InnerCircle></InnerCircle>
       <ButtonText>LAUNCH</ButtonText>
-      {/* <lottie-player
-        autoplay="true"
-        controls
-        loop="true"
-        mode="normal"
-        src="./lottie-pulse.json"
-        style={{ width: 600 + 'px' }}
-      ></lottie-player> */}
+      <LottiePulse />
     </StyledButton>
   );
 }
