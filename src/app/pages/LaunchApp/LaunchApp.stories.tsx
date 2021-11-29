@@ -1,4 +1,3 @@
-import React from 'react';
 import LaunchApp from './LaunchApp';
 
 export default {

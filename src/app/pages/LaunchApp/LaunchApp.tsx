@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import logo from '../../logo.svg';
 import LaunchAppButton from '../../components/LaunchAppButton/LaunchAppButton';
@@ -6,7 +5,7 @@ import LaunchAppButton from '../../components/LaunchAppButton/LaunchAppButton';
 export default function LaunchApp(): JSX.Element {
   return (
     <StyledBody>
-      <StyledHeading>Demo App</StyledHeading>
+      <StyledHeading>TECH DEMO</StyledHeading>
       <StyledImage>
         <img src={logo} height="100vw" alt="" />
       </StyledImage>

@@ -1,4 +1,3 @@
-import React from 'react';
 import LaunchAppButton from './LaunchAppButton';
 
 export default {
