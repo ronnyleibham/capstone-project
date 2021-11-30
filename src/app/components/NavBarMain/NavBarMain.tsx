@@ -8,18 +8,27 @@ export default function NavBarMain(): JSX.Element {
   return (
     <NavContainer>
       <NavUpperContainer>
-        <img src={searchIcon} height="40px" alt="" />
-        <CenterIconBackground src={cameraIrisIcon} height="120px" alt="" />
-        <img src={archiveIcon} height="40px" alt="" />
+        <a href="#">
+          <StylingImage src={searchIcon} height="40px" alt="" />
+        </a>
+        <a href="#">
+          <CenterIconBackground src={cameraIrisIcon} height="120px" alt="" />
+        </a>
+        <a href="#">
+          <StylingImage src={archiveIcon} height="40px" alt="" />
+        </a>
       </NavUpperContainer>
       <NavLowerContainer>
-        <img src={logo} height="40px" alt="" />
+        <a href="#">
+          <img src={logo} height="40px" alt="" />
+        </a>
       </NavLowerContainer>
     </NavContainer>
   );
 }
 
 const NavContainer = styled.div`
+  border-top: 3px solid var(--black);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
@@ -40,6 +49,7 @@ const NavUpperContainer = styled.div`
   background-color: var(--yellow-dark);
   overflow: visible;
   max-height: 50px;
+  z-index: 10;
 `;
 
 const NavLowerContainer = styled.div`
@@ -55,4 +65,8 @@ const CenterIconBackground = styled.img`
   border: 2px solid var(--black);
   border-radius: 100%;
   padding: 2px;
+`;
+
+const StylingImage = styled.img`
+  padding: 2px 20px;
 `;
