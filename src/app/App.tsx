@@ -7,7 +7,7 @@ function App(): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LaunchApp />}></Route>
-        <Route path="/takephoto/" element={<TakePhoto />}></Route>
+        <Route path="/takephoto" element={<TakePhoto />}></Route>
       </Routes>
     </BrowserRouter>
   );
