@@ -3,13 +3,40 @@ import CamDeviceInterface from '../../components/CamDeviceInterface/CamDeviceInt
 import NavBarCamera from '../../components/NavBarCamera/NavBarCamera';
 
 export default function TakePhoto(): JSX.Element {
+  function handleTakePhoto() {
+    console.log('Clicked');
+
+    const width = 1080;
+    const height = 720;
+
+    // const video = document.getElementById(
+    //   'CamDeviceInterface'
+    // ) as HTMLVideoElement;
+    const video = document.getElementsByTagName('video')[0];
+    const photo = document.createElement('canvas') as HTMLCanvasElement;
+
+    photo.width = width;
+    photo.height = height;
+
+    const ctx = photo.getContext('2d');
+    if (!ctx) {
+      return;
+    }
+    ctx.drawImage(video, 0, 0, width, height);
+
+    const dataURI = photo.toDataURL('image/png');
+    localStorage.setItem('image', dataURI);
+  }
+
+  localStorage.getItem('image');
+
   return (
     <StyledBody>
       <StyledHeading>Take a picture</StyledHeading>
-      <StyledLivePicture>
+      <StyledLivePicture id="test">
         <CamDeviceInterface />
       </StyledLivePicture>
-      <NavBarCamera />
+      <NavBarCamera onClick={handleTakePhoto} />
     </StyledBody>
   );
 }

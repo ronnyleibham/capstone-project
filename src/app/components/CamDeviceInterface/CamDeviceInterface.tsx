@@ -13,7 +13,7 @@ export default function CamDeviceInterface(): JSX.Element {
         audio: false,
         video: {
           width: 1080,
-          height: 1920,
+          height: 720,
           facingMode: 'environment',
         },
       });
