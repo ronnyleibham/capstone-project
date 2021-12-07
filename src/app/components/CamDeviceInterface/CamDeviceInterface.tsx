@@ -5,8 +5,6 @@ export default function CamDeviceInterface(): JSX.Element {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const photoRef = useRef(null);
 
-  // const [hasPhoto, setHasPhoto] = useState(false);
-
   const getVideo = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({

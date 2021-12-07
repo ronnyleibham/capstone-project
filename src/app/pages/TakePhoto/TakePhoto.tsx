@@ -4,14 +4,9 @@ import NavBarCamera from '../../components/NavBarCamera/NavBarCamera';
 
 export default function TakePhoto(): JSX.Element {
   function handleTakePhoto() {
-    console.log('Clicked');
-
     const width = 1080;
     const height = 720;
 
-    // const video = document.getElementById(
-    //   'CamDeviceInterface'
-    // ) as HTMLVideoElement;
     const video = document.getElementsByTagName('video')[0];
     const photo = document.createElement('canvas') as HTMLCanvasElement;
 
