@@ -4,18 +4,20 @@ import archiveIcon from '../../../assets/icons/archive.svg';
 import MyLottieCamAnimation from '../LottieCamButton/LottieCamButton';
 import searchIcon from '../../../assets/icons/search-icon.svg';
 
-export default function NavBarCamera(): JSX.Element {
+type NavBarCameraProps = { onClick: () => void };
+
+export default function NavBarCamera(props: NavBarCameraProps): JSX.Element {
   return (
     <NavContainer>
       <NavUpperContainer>
         <a href="#">
           <StylingImage src={searchIcon} height="40px" alt="" />
         </a>
-        <a href="#">
+        <StyledButton onClick={props.onClick}>
           <CenterIconBackground>
             <MyLottieCamAnimation />
           </CenterIconBackground>
-        </a>
+        </StyledButton>
         <a href="#">
           <StylingImage src={archiveIcon} height="40px" alt="" />
         </a>{' '}
@@ -74,4 +76,10 @@ const CenterIconBackground = styled.div`
 
 const StylingImage = styled.img`
   padding: 2px 20px;
+`;
+
+const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
 `;

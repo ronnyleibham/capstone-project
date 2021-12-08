@@ -2,7 +2,7 @@
   "name": "vite-boilerplate",
   "version": "0.0.0",
   "scripts": {
-    "client:dev": "vite",
+    "client:dev": "vite --host",
     "client:build": "tsc && vite build",
     "server:dev": "ts-node-dev --respawn --transpile-only --project tsconfig.server.json src/server.ts",
     "server:build": "tsc --project tsconfig.server.json",
@@ -42,7 +42,8 @@
     "stylelint-config-standard": "^22.0.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.2",
-    "vite": "^2.6.14"
+    "vite": "^2.6.14",
+    "vite-plugin-mkcert": "^1.5.2"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
