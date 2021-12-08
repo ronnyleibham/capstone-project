@@ -6,6 +6,4 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const CamInterface = (): JSX.Element => (
-  <CamDeviceInterface></CamDeviceInterface>
-);
+export const CamInterface = (): JSX.Element => <CamDeviceInterface />;
