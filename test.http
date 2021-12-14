@@ -1,0 +1,33 @@
+POST https://api.deepva.com/api/v1/jobs/ HTTP/1.1
+Content-Type: application/json
+Authorization: Key {{$dotenv DEEPVA_API_KEY}}
+
+{
+    "sources": [
+        "storage://mC2hvpBFNy1SnO0rNBUh"
+    ],
+    "modules": {
+      "face_recognition": {
+        "model": "celebrities"
+      }
+    }
+}
+
+###
+
+POST https://api.deepva.com/api/v1/storage/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=MyBoundary
+Authorization: Key {{$dotenv DEEPVA_API_KEY}}
+
+--MyBoundary
+Content-Disposition: form-data; name="file"; filename="maverick.jpg"
+Content-Type: image/jpeg
+
+< /Users/ronny/Desktop/maverick.jpg
+--MyBoundary
+Content-Disposition: form-data; name="folder"
+
+/
+--MyBoundary--
+
+###
