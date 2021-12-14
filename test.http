@@ -31,3 +31,18 @@ Content-Disposition: form-data; name="folder"
 --MyBoundary--
 
 ###
+
+
+// Testing Routines for server.ts
+POST http://localhost:3001/api/getStorageId/ HTTP/1.1
+
+###
+POST http://localhost:3001/api/getJobId/ HTTP/1.1
+
+###
+GET http://localhost:3001/api/jobs/ HTTP/1.1
+
+###
+GET http://localhost:3001/api/jobsList/ HTTP/1.1
+
+###

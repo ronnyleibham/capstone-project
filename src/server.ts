@@ -26,27 +26,25 @@ app.use('/storybook', express.static('dist/storybook'));
 // upload image to storage and receive storageID
 app.post('/api/getStorageId/', async (_req, res) => {
   const imageURL = '/Users/ronny/Desktop/maverick.jpg'; //change to: req.params
-  const exampleFile = fs.createReadStream(path.join(__dirname, `${imageURL}`));
+  const exampleFile = fs.createReadStream(imageURL);
 
   const form = new FormData();
   form.append('folder', '/');
   form.append('file', exampleFile);
 
-  const myHeaders = form.getHeaders();
-  myHeaders.append('Content-Type', 'multipart/form-data');
-  myHeaders.append('Authorization', 'Key {{$dotenv DEEPVA_API_KEY}}');
-
   const options: RequestInit = {
     method: 'POST',
-    headers: myHeaders,
+    headers: {
+      Authorization: `Key ${process.env.DEEPVA_API_KEY}`,
+    },
     body: form,
-    redirect: 'follow',
   };
 
   const response = await fetch(
     `${process.env.DEEPVA_BASE_URL}/storage/`,
     options
   );
+
   const serverRes = await response.json();
   res.send(serverRes);
   console.log(serverRes);
@@ -54,12 +52,12 @@ app.post('/api/getStorageId/', async (_req, res) => {
 
 // start job with chosen modules and receive JobID
 app.post('/api/getJobId/', async (_req, res) => {
-  const storageId = 'storage://mC2hvpBFNy1SnO0rNBUh'; //change to: req.params
-  const options = {
+  const storageId = 'storage://Zw2hQ7zYSKVxwcGic4VJ'; //change to: req.params
+  const options: RequestInit = {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
       Authorization: `Key ${process.env.DEEPVA_API_KEY}`,
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       sources: [`${storageId}`],
@@ -71,9 +69,10 @@ app.post('/api/getJobId/', async (_req, res) => {
     }),
   };
   const response = await fetch(`${process.env.DEEPVA_BASE_URL}/jobs/`, options);
+
   const serverRes = await response.json();
   res.send(serverRes);
-  console.log(serverRes);
+  console.log(serverRes.id);
 });
 
 // call done job from API with JobID
@@ -92,6 +91,22 @@ app.get('/api/jobs/', async (_req, res) => {
   );
   const serverRes = await response.json();
   res.send(serverRes);
+  console.log(serverRes);
+});
+
+// call ALL done jobs listed from API
+app.get('/api/jobsList/', async (_req, res) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Key ${process.env.DEEPVA_API_KEY}`,
+    },
+  };
+  const response = await fetch(`${process.env.DEEPVA_BASE_URL}/jobs/`, options);
+  const serverRes = await response.json();
+  res.send(serverRes);
+  console.log(serverRes);
 });
 
 app.listen(port, () => {

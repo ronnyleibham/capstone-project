@@ -8,19 +8,19 @@ export default function Result(): JSX.Element {
   // }
   // testoGetJob();
 
-  // async function testStartJob() {
-  //   const testFetch = await fetch(`/api/getJobId/`);
-  //   const gluehwein = await testFetch.json();
-  //   console.log(gluehwein);
-  // }
-  // testStartJob();
-
-  async function testGetStorageId() {
-    const testFetch = await fetch(`/api/getStorageId/`);
+  async function testStartJob() {
+    const testFetch = await fetch(`/api/getJobId/`);
     const gluehwein = await testFetch.json();
     console.log(gluehwein);
   }
-  testGetStorageId();
+  testStartJob();
+
+  // async function testGetStorageId() {
+  //   const testFetch = await fetch(`/api/getStorageId/`);
+  //   const gluehwein = await testFetch.json();
+  //   console.log(gluehwein);
+  // }
+  // testGetStorageId();
 
   return <div></div>;
 }
