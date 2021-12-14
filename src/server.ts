@@ -28,13 +28,13 @@ app.post('/api/getStorageId/', async (_req, res) => {
   const imageURL = '/Users/ronny/Desktop/maverick.jpg'; //change to: req.params
   const exampleFile = fs.createReadStream(path.join(__dirname, `${imageURL}`));
 
-  const myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'multipart/form-data');
-  myHeaders.append('Authorization', 'Key {{$dotenv DEEPVA_API_KEY}}');
-
   const form = new FormData();
   form.append('folder', '/');
   form.append('file', exampleFile);
+
+  const myHeaders = form.getHeaders();
+  myHeaders.append('Content-Type', 'multipart/form-data');
+  myHeaders.append('Authorization', 'Key {{$dotenv DEEPVA_API_KEY}}');
 
   const options: RequestInit = {
     method: 'POST',
