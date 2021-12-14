@@ -10,7 +10,6 @@ import type { RequestInit } from 'node-fetch';
 // imports from 'form-data'
 import FormData from 'form-data';
 import fs from 'fs';
-import path from 'path';
 
 const app = express();
 const port = process.env.PORT || 3001;
