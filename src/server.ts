@@ -90,7 +90,6 @@ app.get('/api/jobs/', async (_req, res) => {
   );
   const serverRes = await response.json();
   res.send(serverRes);
-  console.log(serverRes);
 });
 
 // call ALL done jobs listed from API
