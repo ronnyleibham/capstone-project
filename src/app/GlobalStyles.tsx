@@ -7,11 +7,12 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    
     :root {
     --black: #000000;
     --white: #ffffff;
     --yellow-light: #ffd51a;
-     --yellow-dark: #f3b90e;
+    --yellow-dark: #f3b90e;
     --grey-dark: #231f20;    }
 
     @font-face {
