@@ -16,12 +16,6 @@ const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.get('/api/hello', (_request, response) => {
-  response.json({ message: 'Hello API!' });
-});
-
-app.use('/storybook', express.static('dist/storybook'));
-
 // upload image to storage and receive storageID
 app.post('/api/getStorageId/', async (_req, res) => {
   const imageURL = '/Users/ronny/Desktop/maverick.jpg'; //change to: req.params
@@ -107,6 +101,18 @@ app.get('/api/jobsList/', async (_req, res) => {
   console.log(serverRes);
 });
 
+app.get('/api/hello', (_request, response) => {
+  response.json({ message: 'Hello API!' });
+});
+
+app.use('/storybook', express.static('dist/storybook'));
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}!`);
+});
+
+app.use(express.static('dist/app'));
+
+app.get('*', (_request, response) => {
+  response.sendFile('index.html', { root: 'dist/app' });
 });
