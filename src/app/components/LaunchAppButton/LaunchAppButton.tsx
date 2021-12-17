@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import LottiePulse from '../LottiePulse/LottiePulse';
 
-export default function LaunchAppButton(): JSX.Element {
+type LaunchAppButtonProps = {
+  onClick: () => void;
+};
+
+export default function LaunchAppButton({
+  onClick,
+}: LaunchAppButtonProps): JSX.Element {
   return (
-    <StyledButton>
+    <StyledButton onClick={onClick}>
       <InnerCircle></InnerCircle>
       <ButtonText>LAUNCH</ButtonText>
       <LottiePulse />

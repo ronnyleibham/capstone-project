@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import logo from '../../logo.svg';
 import LaunchAppButton from '../../components/LaunchAppButton/LaunchAppButton';
+import { useNavigate } from 'react-router';
 
 export default function LaunchApp(): JSX.Element {
+  const navigate = useNavigate();
+
   return (
     <StyledBody>
       <StyledHeading>TECH DEMO</StyledHeading>
@@ -10,7 +13,7 @@ export default function LaunchApp(): JSX.Element {
         <img src={logo} height="100vw" alt="" />
       </StyledImage>
       <StyledButton>
-        <LaunchAppButton />
+        <LaunchAppButton onClick={() => navigate('/takephoto/')} />
       </StyledButton>
     </StyledBody>
   );
@@ -19,10 +22,10 @@ export default function LaunchApp(): JSX.Element {
 const StyledBody = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 20% 30% 50%;
   grid-template-areas: 'Top' 'Center' 'Bottom';
   justify-items: center;
-  height: 100vh;
+  height: 90vh;
 `;
 
 const StyledHeading = styled.div`
@@ -40,7 +43,7 @@ const StyledImage = styled.div`
 `;
 
 const StyledButton = styled.div`
-  align-self: end;
+  align-self: center;
   grid-area: Bottom;
-  padding-bottom: 30px;
+  padding: 30px;
 `;
