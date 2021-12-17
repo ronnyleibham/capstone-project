@@ -110,3 +110,7 @@ app.get('/api/jobsList/', async (_req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}!`);
 });
+
+app.get('*', (_request, response) => {
+  response.sendFile('index.html', { root: 'dist/app' });
+});
