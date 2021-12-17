@@ -6,5 +6,9 @@ export default {
 };
 
 export const LaunchButton = (): JSX.Element => (
-  <LaunchAppButton></LaunchAppButton>
+  <LaunchAppButton
+    onClick={function (): void {
+      throw new Error('Function not implemented.');
+    }}
+  ></LaunchAppButton>
 );
